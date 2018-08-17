@@ -1,18 +1,21 @@
 package com.tjplaysnow.discordgame.main;
 
+import net.dv8tion.jda.core.entities.MessageChannel;
+import net.dv8tion.jda.core.entities.User;
+
 public class Game {
 	
-	String window = "┌─────────────┬─────────────────────────────────────────────────────────────────────────────┐\n│             │ ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo │\n│ xxxxxxxxxxx │ ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo │\n│ xxxxxxxxxxx │ ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo │\n│ xxxxxxxxxxx │ ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo │\n│ xxxxxxxxxxx │ ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo │\n│ xxxxxxxxxxx │ ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo │\n│ xxxxxxxxxxx │ ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo │\n│ xxxxxxxxxxx │ ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo │\n│ xxxxxxxxxxx │ ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo │\n│ xxxxxxxxxxx │ ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo │\n│ xxxxxxxxxxx │ ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo │\n│ xxxxxxxxxxx │ ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo │\n│ xxxxxxxxxxx │ ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo │\n│             │ ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo │\n├─────────────┴─────────────────────────────────────────────────────────────────────────────┤\n│ ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc │\n│ ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc │\n│ ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc │\n│ ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc │\n└───────────────────────────────────────────────────────────────────────────────────────────┘";
+	private final String WINDOW = "┌─────────────┬─────────────────────────────────────────────────────────────────────────────┐\n│             │ ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo │\n│ xxxxxxxxxxx │ ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo │\n│ xxxxxxxxxxx │ ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo │\n│ xxxxxxxxxxx │ ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo │\n│ xxxxxxxxxxx │ ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo │\n│ xxxxxxxxxxx │ ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo │\n│ xxxxxxxxxxx │ ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo │\n│ xxxxxxxxxxx │ ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo │\n│ xxxxxxxxxxx │ ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo │\n│ xxxxxxxxxxx │ ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo │\n│ xxxxxxxxxxx │ ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo │\n│ xxxxxxxxxxx │ ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo │\n│ xxxxxxxxxxx │ ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo │\n│             │ ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo │\n├─────────────┴─────────────────────────────────────────────────────────────────────────────┤\n│ ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc │\n│ ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc │\n│ ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc │\n│ ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc │\n└───────────────────────────────────────────────────────────────────────────────────────────┘";
 	
-	public Game() {
+	User user;
+	MessageChannel gameMessage;
+	
+	public Game(User user, MessageChannel gameMessage) {
 	
 	}
 	
 	public String drawWindow() {
 		StringBuilder stringBuilder = new StringBuilder();
-		for (String line : window.split("\n")) {
-		
-		}
 		
 		return "";
 	}
