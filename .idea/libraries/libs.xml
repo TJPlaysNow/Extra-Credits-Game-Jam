@@ -4,9 +4,7 @@
       <root url="file://$PROJECT_DIR$/libs" />
     </CLASSES>
     <JAVADOC />
-    <SOURCES>
-      <root url="file://$PROJECT_DIR$/../Spigot - Discord Bot API - JDA/src" />
-    </SOURCES>
+    <SOURCES />
     <jarDirectory url="file://$PROJECT_DIR$/libs" recursive="false" />
   </library>
 </component>
