@@ -1,8 +1,18 @@
-package com.tjplaysnow.ecgj.game.main;
-
-public class Main {
-	
-	public static void main(String[] args) {
-		System.out.println("Test");
-	}
-}
+//package com.tjplaysnow.ecgj.game.main;
+//
+//import java.util.ArrayList;
+//
+//public class Main
+//{
+//
+//	public static void main(String[] args)
+//	{
+//        ArrayList<Scenes> NodeList = NodeInit();
+////	}
+//
+//
+//	public static ArrayList<Scenes> NodeInit()
+//    {
+//
+//    }
+//}
