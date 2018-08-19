@@ -88,7 +88,7 @@ public class GameWindow
         MaintextPanel.setBackground(Color.black);
         Con.add(MaintextPanel);
 
-        MainTextArea = new JTextArea("Your vision flashes all white before it returns. The eye scanner makes another run across your pupils before you hear a quiet chime come from your AsteRisk brand check-in module. Your credentials fill up onto the screen.\n");
+        MainTextArea = new JTextArea();
         MainTextArea.setBounds(80,100,700,350);
         MainTextArea.setBackground(Color.black);
         MainTextArea.setForeground(Color.white);
@@ -153,6 +153,8 @@ public class GameWindow
         money = 0;
         YearNumber.setText("" + year);
         MoneyNumber.setText("" + money);
+        choice1.setText("Next");
+        MainTextArea.setText("Your vision flashes all white before it returns. The eye scanner makes another run across your pupils before you hear a quiet chime come from your AsteRisk brand check-in module. Your credentials fill up onto the screen.\n");
         nextText();
     }
     public void nextText()
