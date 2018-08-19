@@ -161,7 +161,6 @@ public class GameWindow
     {
         choice1.setText("Next");
     }
-
     public class TitleHandle implements ActionListener{
 
         public void actionPerformed(ActionEvent event)
