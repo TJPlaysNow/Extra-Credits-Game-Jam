@@ -18,7 +18,8 @@ public class GameWindow
     JButton startButton, choice1, choice2;
     private JTextArea MainTextArea;
     TitleHandle TtHandeler = new TitleHandle();
-//    ChoiceHandler choiceHandler = new ChoiceHandler();
+    String Scenes;
+    ChoiceHandler choiceHandler = new ChoiceHandler();
 
     int year;
     int money;
@@ -108,7 +109,7 @@ public class GameWindow
         choice1.setForeground(Color.white);
         choice1.setFont(Default);
         choice1.setFocusPainted(false);
-//        choice1.addActionListener(choiceHandler);
+        choice1.addActionListener(choiceHandler);
         choice1.setActionCommand("1");
         ChoicePanel.add(choice1);
 
@@ -117,7 +118,7 @@ public class GameWindow
         choice2.setForeground(Color.white);
         choice2.setFont(Default);
         choice2.setFocusPainted(false);
-//        choice2.addActionListener(choiceHandler);
+        choice2.addActionListener(choiceHandler);
         choice2.setActionCommand("2");
         ChoicePanel.add(choice2);
 
@@ -144,22 +145,24 @@ public class GameWindow
         YearNumber.setFont(Default);
         YearNumber.setForeground(Color.white);
         PlayerStats.add(YearNumber);
-        StatsInit();
+        Scene1_1();
 
     }
-    public void StatsInit()
+    public void Scene1_1()
     {
+        Scenes = "1_1";
         year = 2100;
         money = 0;
         YearNumber.setText("" + year);
         MoneyNumber.setText("" + money);
         choice1.setText("Next");
         MainTextArea.setText("Your vision flashes all white before it returns. The eye scanner makes another run across your pupils before you hear a quiet chime come from your AsteRisk brand check-in module. Your credentials fill up onto the screen.\n");
-        nextText();
     }
-    public void nextText()
+    public void Scene1_2()
     {
-        choice1.setText("Next");
+        Scenes = "1_2";
+        MainTextArea.setText("“Are you sure you’ll be alright sweetie?”\n" +
+                "“I’ll be fine Mom” You turn to reassure your Mom and see your Dad standing next to her, arms crossed and with a worried expression. “And don’t you worry too, Dad.  I passed training with flying colors. And besides, asteroid mining will be an adventure.”\n");
     }
     public class TitleHandle implements ActionListener{
 
@@ -168,20 +171,23 @@ public class GameWindow
             GameScreen();
         }
     }
-//    public class ChoiceHandler implements ActionListener
-//    {
-//        public void actionPerformed(ActionEvent event)
-//        {
-//            String PlayerCommand = event.getActionCommand();
-//            switch (Node)
-//            {
-//                case "1-1":
-//                    switch (PlayerCommand)
-//                    {
-//                        case "1":
-//                    }
-//            }
-//        }
-//    }
+
+    public class ChoiceHandler implements ActionListener
+    {
+        public void actionPerformed(ActionEvent event)
+        {
+            String PlayerCommand = event.getActionCommand();
+            switch (Scenes)
+            {
+                case "1_1":
+                    switch (PlayerCommand)
+                    {
+                        case "1":Scene1_2(); break;
+                        case "2":Scene1_2(); break;
+                    }
+            }
+        }
+    }
+
 
 }
